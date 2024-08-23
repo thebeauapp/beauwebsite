@@ -8,6 +8,12 @@ module.exports = async function(env, argv) {
     ...config.resolve.fallback, // inherit existing fallbacks
     crypto: require.resolve('crypto-browserify'),
     stream: require.resolve('stream-browserify'),
+    vm: false,
+  };
+  config.performance = {
+    maxEntrypointSize: 1024000, // Set the limit for entry points (1MB)
+    maxAssetSize: 1024000,      // Set the limit for assets (1MB)
+    hints: false                // Disable performance hints
   };
 
   return config;

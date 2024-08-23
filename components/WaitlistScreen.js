@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button, StyleSheet, Alert, CheckBox, Modal, Pressable } from "react-native";
 import { db } from "../firebase"; 
 import { collection, addDoc } from "firebase/firestore";
+import Constants from 'expo-constants';
+
 
 const WaitlistScreen = () => {
   const [email, setEmail] = useState("");
@@ -12,7 +14,7 @@ const WaitlistScreen = () => {
   const handleSubmit = async () => {
     if (email && phoneNumber && isSubscribed) {
       try {
-        await addDoc(collection(db, "users"), {
+        await addDoc(collection(db, "waitlist_users"), {
           email: email,
           phoneNumber: phoneNumber,
           isSubscribed: isSubscribed,

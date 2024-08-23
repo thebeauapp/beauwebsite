@@ -9,16 +9,15 @@ if (!extra) {
   throw new Error("Missing configuration in app.json or app.config.js");
 }
 
-
 const firebaseConfig = {
-    apiKey: extra.FIREBASE_API_KEY,
-    authDomain: extra.FIREBASE_AUTH_DOMAIN,
-    projectId: extra.FIREBASE_PROJECT_ID,
-    storageBucket: extra.FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: extra.FIREBASE_MESSAGING_SENDER_ID,
-    appId: extra.FIREBASE_APP_ID,
-    measurementId: extra.FIREBASE_MEASUREMENT_ID
-  };
+  apiKey: Constants.manifest.extra.firebaseApiKey,
+  authDomain: Constants.manifest.extra.firebaseAuthDomain,
+  projectId: Constants.manifest.extra.firebaseProjectId,
+  storageBucket: Constants.manifest.extra.firebaseStorageBucket,
+  messagingSenderId: Constants.manifest.extra.firebaseMessagingSenderId,
+  appId: Constants.manifest.extra.firebaseAppId,
+  measurementId: Constants.manifest.extra.firebaseMeasurementId,
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
